@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\Role;
-use App\Models\roleUser;
+// use App\Models\roleUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Member;
@@ -20,11 +20,12 @@ class IndexController extends Controller
     public function belong(){
         return Member::with('belong')->get();
     }
-    // public function getRolerelation(){
-    //     return Role::with('users')->get();
-    // }
-    public function relation(){
-        return User::with('roles')->get();
+    public function getRolerelation(){
+        return Role::with('users')->get();
+    }
+    public function userRoles(){
+        $user =  User::with('roles')->get();
+        return $user;
     }
     public function get(){
         return Role::with('users')->get();

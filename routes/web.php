@@ -19,11 +19,11 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/relation', [IndexController::class, 'userRoles']);
 Route::get('/data', [IndexController::class, 'index']);
 Route::get('/user', [IndexController::class, 'user']);
 Route::get('/belong', [IndexController::class, 'belong']);
 Route::get('/roles', [IndexController::class, 'getRolerelation']);
-Route::get('/relation', [IndexController::class, 'relation']);
 Route::get('/get', [IndexController::class, 'get']);
 
 Route::resource('products',ProductController::class);
