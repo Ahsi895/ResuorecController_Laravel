@@ -11,4 +11,7 @@ class Product extends Model
     protected $fillable = [
         'pro_name', 'Price', 'Image'
     ];
+    function setProNameAttribute($value){
+        $this->attributes['pro_name'] = ucwords($value);
+    }
 }

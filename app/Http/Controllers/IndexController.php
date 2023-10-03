@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
+use App\Models\Mechanic;
 use App\Models\Role;
 // use App\Models\roleUser;
 use App\Models\User;
@@ -29,5 +30,11 @@ class IndexController extends Controller
     }
     public function get(){
         return Role::with('users')->get();
+    }
+    public function owner(){
+        return Mechanic::with('carOwner')->get();
+    }
+    public function many(){
+        return Mechanic::with('many')->get();
     }
 }
